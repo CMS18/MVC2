@@ -13,3 +13,6 @@ I mappen [demos](demos) hittar du saker jag visat på lektionerna.
 * [01 HTTP](lab/01.md)
 * [02 Bygg din egen webbserver](lab/02.md)
 * [03 Hello ASP.NET](lab/03.md)
+* [04 Razor Partials & Layouts](lab/04.md)
+* [05 Html Form Elements, Binding and Tag-Helpers](lab/05.md)
+* [06 Configuration and Dependecy Injection](lab/06.md)
