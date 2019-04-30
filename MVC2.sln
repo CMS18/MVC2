@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02-SimpleWebServer-Start", "lab\02-SimpleWebServer-Start\02-SimpleWebServer-Start.csproj", "{280CCAE9-1B34-4551-BF5E-195F6EDD29B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8C206AB7-A062-4962-8491-6EDA6307FF85}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02-SimpleWebServer-Solution", "lab\02-SimpleWebServer-Solution\02-SimpleWebServer-Solution.csproj", "{AE27CD6C-0FC8-40F0-B40F-9C914F7EA879}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-HelloAspNet-Solution", "lab\03-HelloAspNet\03-HelloAspNet-Solution.csproj", "{D747F24F-43C5-4F77-9D2A-89010404B84B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{280CCAE9-1B34-4551-BF5E-195F6EDD29B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280CCAE9-1B34-4551-BF5E-195F6EDD29B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280CCAE9-1B34-4551-BF5E-195F6EDD29B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280CCAE9-1B34-4551-BF5E-195F6EDD29B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE27CD6C-0FC8-40F0-B40F-9C914F7EA879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE27CD6C-0FC8-40F0-B40F-9C914F7EA879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE27CD6C-0FC8-40F0-B40F-9C914F7EA879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE27CD6C-0FC8-40F0-B40F-9C914F7EA879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D747F24F-43C5-4F77-9D2A-89010404B84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D747F24F-43C5-4F77-9D2A-89010404B84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D747F24F-43C5-4F77-9D2A-89010404B84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D747F24F-43C5-4F77-9D2A-89010404B84B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56D0D336-2DE5-44CE-9E56-5354F2FB86F2}
+	EndGlobalSection
+EndGlobal
