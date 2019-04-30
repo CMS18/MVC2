@@ -33,9 +33,11 @@ namespace MailDemo.Web
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc( ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddInfrastructureServices(Configuration);
+            services.AddInfrastructureServices(options => {
+                Configuration.GetSection("EmailConfig").Bind(options.EmailConfig);
+            });
 
         }
 
