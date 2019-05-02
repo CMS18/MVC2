@@ -1,0 +1,56 @@
+﻿@model Basic.Models.LoginModel
+
+@{
+    ViewData["Title"] = "CookieLogin";
+}
+
+<h2>CookieLogin</h2>
+
+<h4>LoginModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CookieLogin" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<dl>
+    <dt>User.Identity.IsAuthenticated:</dt>
+    <dd>@User.Identity.IsAuthenticated</dd>
+    <dt>User.Identity.Name:</dt>
+    <dd>@User.Identity.Name</dd>
+    <dt>User.IsInRole("Admin"):</dt>
+    <dd>@User.IsInRole("Admin")</dd>
+</dl>
+
+<h3>User Claims</h3>
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

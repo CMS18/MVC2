@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="row">
+
+        <dl>
+            <dt>Current Process User Name:</dt>
+            <dd>@Environment.UserName</dd>
+            <dt>Fredrik Fil</dt>
+            <dd>@ViewData["FredriksFil"]</dd>
+            <dt>User.Identity.IsAuthenticated:</dt>
+            <dd>@User.Identity.IsAuthenticated</dd>
+            <dt>User.Identity.Name:</dt>
+            <dd>@User.Identity.Name</dd>
+            <dt>User.IsInRole("Admin"):</dt>
+            <dd>@User.IsInRole("Admin")</dd>
+        </dl>
+
+        <h3>User Claims</h3>
+        <dl>
+            @foreach (var claim in User.Claims){
+            <dt>@claim.Type</dt>
+            <dd>@claim.Value</dd>
+            }
+        </dl>
+
+</div>
+
