@@ -8,11 +8,19 @@ using Basic.Models;
 using System.Security.Principal;
 using Microsoft.AspNetCore.Http;
 using System.Text;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace Basic.Controllers
 {
     public class HomeController : Controller
     {
+        private IDataProtector protector;
+
+        public HomeController(IDataProtectionProvider provider)
+        {
+            protector = provider.CreateProtector("MyLogin");
+        }
+
         public IActionResult Index()
         {
             var text = ""; //System.IO.File.ReadAllText(@"C:\Users\FredrikHaglund\Desktop\fredriksfile.txt");
@@ -60,7 +68,8 @@ namespace Basic.Controllers
             var loginCookie = Request.Cookies["Login"];
             if (loginCookie != null)
             {
-                var user = new GenericPrincipal(new GenericIdentity(loginCookie), null);
+                var username = protector.Unprotect(loginCookie);
+                var user = new GenericPrincipal(new GenericIdentity(username), null);
                 HttpContext.User = user;
             }
 
@@ -77,7 +86,7 @@ namespace Basic.Controllers
 
                 //TODO: Kolla att lösenordet stämmer
 
-                Response.Cookies.Append("Login", model.UserName,
+                Response.Cookies.Append("Login", protector.Protect(model.UserName),
                     new CookieOptions {
                         Expires = DateTimeOffset.Now.AddDays(30),
                         HttpOnly = true,
@@ -89,6 +98,27 @@ namespace Basic.Controllers
 
             return View(model);
         }
+
+        public IActionResult Protect(string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                ViewData["Result"] = protector.Protect(value);
+            }
+
+            return View();
+        }
+
+        public IActionResult Unprotect(string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                ViewData["Result"] = protector.Unprotect(value);
+            }
+
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {

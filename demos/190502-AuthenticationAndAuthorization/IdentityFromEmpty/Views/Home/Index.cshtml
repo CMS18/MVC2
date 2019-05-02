@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<dl>
+    <dt>User.Identity.IsAuthenticated:</dt>
+    <dd>@User.Identity.IsAuthenticated</dd>
+    <dt>User.Identity.Name:</dt>
+    <dd>@User.Identity.Name</dd>
+</dl>
+
+<h3>User Claims</h3>
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
