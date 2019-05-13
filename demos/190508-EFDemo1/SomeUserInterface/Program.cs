@@ -44,7 +44,7 @@ namespace SomeUserInterface
             //ProjectSomeProperties();
             //ProjectSamuraisWithQuotes();
             //FilteringWithRelatedData();
-            //ModifyingRelatedDataWhenTracked();
+            ModifyingRelatedDataWhenTracked();
             //ModifyingRelatedDataWhenNotTracked();
 
         }
