@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
 using AspNetCoreRateLimit;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 
 namespace Library.API
 {
@@ -128,6 +130,13 @@ namespace Library.API
 
             services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
             services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("lib", 
+                    new OpenApiInfo { Title = "Library API Doc"}
+                    );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -187,7 +196,14 @@ namespace Library.API
 
             app.UseHttpCacheHeaders();
 
-            app.UseMvc(); 
+            app.UseMvc();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/lib/swagger.json", "Library API");
+            });
         }
     }
 }

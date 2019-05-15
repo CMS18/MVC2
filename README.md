@@ -16,3 +16,6 @@ I mappen [demos](demos) hittar du saker jag visat på lektionerna.
 * [04 Razor Partials & Layouts](lab/04.md)
 * [05 Html Form Elements, Binding and Tag-Helpers](lab/05.md)
 * [06 Configuration and Dependecy Injection](lab/06.md)
+* [07 Data Protection, Authentication & Authorization with Identity ](lab/07.md)
+* [08 Entity Framework Core](lab/08.md)
+* [09 Deploy till lokal IIS](lab/09.md)
