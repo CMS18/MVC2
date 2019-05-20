@@ -1,0 +1,14 @@
+﻿@model TypeAheadRoot
+@{
+    ViewData["Title"] = "SearchSite";
+}
+
+<h1>Hållplatser</h1>
+
+<ul>
+    @foreach (var item in Model.ResponseData)
+    {
+        <li><a asp-action="NextDeparture" asp-route-siteid="@item.SiteId">@item.Name </a></li>
+    }
+</ul>
+

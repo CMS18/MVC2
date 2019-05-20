@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <form asp-action="searchSite" method="get">
+        <div class="form-group">
+            <label for="inputSiteName">Hållplats</label>
+            <input class="form-control" id="inputSiteName" name="q" aria-describedby="siteHelp" placeholder="Slussen">
+            <small id="siteHelp" class="form-text text-muted">Ange namnet på en hållplats eller område för kollektivtrafiken i Stockholm.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Sök</button>
+    </form>
+</div>

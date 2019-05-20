@@ -19,3 +19,5 @@ I mappen [demos](demos) hittar du saker jag visat på lektionerna.
 * [07 Data Protection, Authentication & Authorization with Identity ](lab/07.md)
 * [08 Entity Framework Core](lab/08.md)
 * [09 Deploy till lokal IIS](lab/09.md)
+* [10 Använda API med HttpClient](lab/10.md)
+
