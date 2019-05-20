@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using NextTrip.Models;
@@ -29,6 +30,7 @@ namespace NextTrip.Controllers
 
         public async Task<IActionResult> SearchSite(string q)
         {
+            var isAjax = Request.Headers["X-Requested-With"] == "XMLHttpRequest";
             var model = new TypeAheadRoot();
 
             // Bygg Url för anrop
@@ -52,10 +54,17 @@ namespace NextTrip.Controllers
             if (response.IsSuccessStatusCode)
             {
                 model = await response.Content.ReadAsAsync<TypeAheadRoot>();
-                return View(model);
+                if (isAjax)
+                {
+                    return PartialView(model);
+                }
+                else
+                {
+                    return View(model);
+                };
             }
 
-            return View("Index");
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         public IActionResult NextDeparture(int siteId)

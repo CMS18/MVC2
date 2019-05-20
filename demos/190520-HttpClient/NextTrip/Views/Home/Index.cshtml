@@ -12,3 +12,38 @@
         <button type="submit" class="btn btn-primary">Sök</button>
     </form>
 </div>
+
+<hr />
+
+<div id="resultList">XYZ</div>
+
+@section Scripts { 
+<script>
+    (function (w, d) {
+        var input = d.getElementById('inputSiteName');
+        var result = d.getElementById('resultList');
+
+        input.addEventListener("input", function () {
+            var url = `/Home/SearchSite?q=${encodeURIComponent(input.value)}`;
+
+            fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                }
+            })
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (text) {
+                    result.innerHTML = 'Result: ' + text;
+                });
+
+            
+
+        });
+
+        
+    })(window, document);
+
+</script>
+}
