@@ -3,7 +3,7 @@
 }
 
 <div class="row">
-    <form asp-action="searchSite" method="get">
+    <form asp-action="searchSite" method="get" data-ajax="true" data-ajax-update="#resultList">
         <div class="form-group">
             <label for="inputSiteName">Hållplats</label>
             <input class="form-control" id="inputSiteName" name="q" aria-describedby="siteHelp" placeholder="Slussen">
@@ -12,3 +12,15 @@
         <button type="submit" class="btn btn-primary">Sök</button>
     </form>
 </div>
+<div id="resultList"></div>
+
+@*@section Scripts{ 
+<script>
+    (function (w, d) {
+        var e = d.getElementById('inputSiteName');
+        e.onchange = function () {
+            fetch()
+        };
+    })(window, document);
+</script>
+}*@

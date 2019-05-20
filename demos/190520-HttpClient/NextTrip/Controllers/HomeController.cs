@@ -31,6 +31,8 @@ namespace NextTrip.Controllers
         {
             var model = new TypeAheadRoot();
 
+            var isAjax = Request.Headers["X-Requested-With"] == "XMLHttpRequest";
+
             // Bygg Url för anrop
             var urlBuilder = new UriBuilder("https://api.sl.se/api2/typeahead.json");
             var query = HttpUtility.ParseQueryString(urlBuilder.Query);
@@ -52,7 +54,14 @@ namespace NextTrip.Controllers
             if (response.IsSuccessStatusCode)
             {
                 model = await response.Content.ReadAsAsync<TypeAheadRoot>();
-                return View(model);
+                if (isAjax)
+                {
+                    return PartialView(model);
+                }
+                else
+                {
+                    return View(model);
+                };
             }
 
             return View("Index");
