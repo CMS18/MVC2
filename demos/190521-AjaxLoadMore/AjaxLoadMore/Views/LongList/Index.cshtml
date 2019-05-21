@@ -1,0 +1,30 @@
+﻿@model AjaxLoadMore.Models.LongListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div id="myTarget">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Belopp
+                </th>
+                <th>
+                    Summa
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <partial name="_TransactionRows" model="@Model" />
+        </tbody>
+    </table>
+
+
+</div>

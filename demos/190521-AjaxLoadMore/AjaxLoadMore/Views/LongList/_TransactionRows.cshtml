@@ -1,0 +1,39 @@
+﻿@model AjaxLoadMore.Models.LongListViewModel
+
+@foreach (var transaction in Model.Transactions)
+{
+    <tr>
+        <td>
+            @transaction.Id
+        </td>
+        <td>
+            @transaction.Amount.ToString("C")
+        </td>
+        <td>
+            @transaction.Balance.ToString("C")
+        </td>
+    </tr>
+}
+<tr id="buttonRow">
+    <td colspan="3" align="center">
+        @if (Model.CanShowMore)
+        {
+            <div id="spinner" class="spinner-border" style="display: none;" role="status" >
+                <span class="sr-only">Laddar...</span>
+            </div>
+            <div>
+                <a data-ajax="true" data-ajax-mode="REPLACE-WITH" data-ajax-update="#buttonRow" class="btn btn-primary" asp-route-page="@(Model.PageNumber+1)"
+                   data-ajax-loading="#spinner"
+                   role="button">Visa flera</a>
+            </div>
+
+            // data-ajax-confirm="Är du säker?"
+        }
+        else
+        {
+            <div class="alert alert-primary" role="alert">
+                Slut på transaktioner.
+            </div>
+        }
+    </td>
+</tr>
